@@ -1,0 +1,44 @@
+<h1 style="display: flex;justify-content: center;margin-top: 8rem">Register</h1>
+<div class="container" style="display: flex;justify-content: center;margin-top: 2rem;">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field form-floating mb-4" style="width: 25rem">
+      <%= f.text_field :username, autofocus: true, class:"form-control",id:"username-field", placeholder: "enter a suitable username"%>
+      <label for="username-field">enter a suitable username</label>
+    </div>
+
+    <div class="field form-floating mb-4" style="width: 25rem">
+      <%= f.text_field :name, class:"form-control",id:"name-field", placeholder: "enter your name"%>
+      <label for="name-field">enter your name</label>
+    </div>
+
+    <div class="field form-floating mb-4" style="width: 25rem">
+      <%= f.email_field :email, autocomplete: "email", class:"form-control",id:"email-field", placeholder: "email"%>
+      <label for="email-field">email</label>
+    </div>
+
+    <div class="field mb-4">
+    <%= f.label :date_of_birth, class:"form-label"%><br />
+    <%= f.date_field :date_of_birth, class:"form-control"%>
+    </div>
+
+    <div class="field form-floating mb-4" style="width: 25rem">
+      <%= f.password_field :password, autocomplete: "new-password", class:"form-control",id:"password-field", placeholder: "enter a password" %>
+      <label for="password-field">enter a password (6 characters minimum)</label>
+    </div>
+
+    <div class="field form-floating mb-4" style="width: 25rem">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control",id:"repeat-password-field", placeholder: "D"%>
+      <label for="repeat-password-field">password</label>
+    </div>
+    
+    <div class="actions" style="text-align:center;">
+      <%= f.submit "Sign up",class:"btn btn-outline-primary btn-lg" %>
+    </div>
+<% end %>
+</div>
+
+
+

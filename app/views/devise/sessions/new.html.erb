@@ -1,0 +1,27 @@
+<h1 style="display: flex;justify-content: center;margin-top: 8rem">Log in</h1>
+<div class="container" style="display: flex;justify-content: center;margin-top: 2rem;">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field form-floating mb-4" style="width: 25rem">
+    <%= f.text_field :login, autofocus: true, class:"form-control",id:"email-field", placeholder: "email or username"%>
+    <label for="email-field">email or username</label>
+  </div>
+
+  <div class="field form-floating mb-4" style="width: 25rem">
+    <%= f.password_field :password, autocomplete: "current-password", class:"form-control",id:"password-field", placeholder: "email or username"%>
+    <label for="password-field">password</label>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field form-group" style="width: 25rem;display: flex;justify-content: center;">
+      <%= f.check_box :remember_me,class: "form-check-input"%>
+      <%= f.label "remember_me", class:"form-label"%>
+    </div>
+  <% end %>
+
+  <div class="actions d-grid gap-2 col-4 mx-auto" style="text-align:center;">
+    <%= f.submit "Log in",class:"btn btn-outline-primary btn-lg" %>
+    <%= link_to "Sign up", new_registration_path(resource_name),class:"btn btn-outline-primary btn-sm col-8 mx-auto"%>
+  </div>
+<% end %>
+</div>
+

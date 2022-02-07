@@ -1,0 +1,12 @@
+<div class="card col-sm-4 col-2 fixed-top" style="width: 20rem; margin-top: 8rem; margin-left: 3rem;">
+  		<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" class="card-img-top" alt="..." style="margin-top: 0.75rem;">
+  		<div class="card-body">
+    	<h5 class="card-title"><%= "@"+@user.username%></h5>
+    	<p class="card-text">
+    		<%= @user.name%> <br>
+    		Born on <%= @user.date_of_birth.strftime("%eth of %B, %Y")%>
+    		<hr>
+    		<%= @user.description%>
+    	</p>
+  		</div>
+	</div>

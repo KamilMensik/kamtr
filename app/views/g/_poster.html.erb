@@ -1,0 +1,16 @@
+<% @posts.each do |i| %>
+	<div class="card" style="width: 40rem;">
+		<div class="card-body">
+  			<div class="row row-cols-2">
+    			<div class="col col-md-3" style="text-align: center;">
+    				<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="..." style="height: 4rem;">
+    			</div>
+    			<div class="col col-md-9"><p class="card-text"><%= i.content%></p></div>
+    			<div class="col col-md-3" style="text-align: center;><h6 class="card-subtitle mb-2 text-muted"><%= "@"+User.find(i.user_id).username %></h6></div>
+    			<div class="col col-md-9" style="text-align: right;"><%= i.created_at.strftime("Posted on %d.%m.%Y %H:%M") %></div>
+  			</div>
+		</div>
+	</div>
+	<%= link_to "VISIT CLOSER", i%>
+	<br>
+<% end %>
