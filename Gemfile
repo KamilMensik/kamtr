@@ -65,6 +65,9 @@ group :development do
   # gem "spring"
 end
 
+group :production
+  gem 'pg', '~> 1.3', '>= 1.3.1'
+end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
