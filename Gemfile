@@ -65,7 +65,7 @@ group :development do
   # gem "spring"
 end
 
-group :production
+group :production do
   gem 'pg', '~> 1.3', '>= 1.3.1'
 end
 group :test do
