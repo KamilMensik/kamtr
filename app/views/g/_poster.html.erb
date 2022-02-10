@@ -1,5 +1,5 @@
 <% @posts.each do |i| %>
-	<div class="card" style="width: 40rem;">
+	<div class="card" style="width: 40rem; margin-left:auto;margin-right: auto;">
 		<div class="card-body">
   			<div class="row row-cols-2">
     			<div class="col col-md-3" style="text-align: center;">
@@ -9,10 +9,13 @@
     			<div class="col col-md-3" style="text-align: center;><h6 class="card-subtitle mb-2 text-muted"><%= "@"+User.find(i.user_id).username %></h6></div>
     			<div class="col col-md-8" style="text-align: right;"><%= i.created_at.strftime("Posted on %d.%m.%Y %H:%M") %></div>
     			<div class="col col-md-1"><%= render "g/like_button", post: i, style:"margin-right: 1rem;"%></div>
+    			<%if user_signed_in? && current_user.id==i.user_id%>
+					<%= link_to "<delete>", post_path(i), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+				<% end %>
+				<br>
   			</div>
 			
 		</div>
 	</div>
-	<%= link_to "VISIT CLOSER", i%>
-	<br>
+	
 <% end %>

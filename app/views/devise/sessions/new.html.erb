@@ -12,9 +12,9 @@
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field form-group" style="width: 25rem;display: flex;justify-content: center;">
+    <div class="form-check" style="width: 25rem;display: flex;justify-content: center;">
       <%= f.check_box :remember_me,class: "form-check-input"%>
-      <%= f.label "remember_me", class:"form-label"%>
+      <%= f.label "remember_me", class:"form-check-label"%>
     </div>
   <% end %>
 

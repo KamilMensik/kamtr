@@ -10,7 +10,7 @@
         <div><%= message %></div>
       <% end %>
     </div>
-    <%= i.check_box :is_edited, value: false, type: :hidden %>
+    <%= i.hidden_field :is_edited, value: false%>
     <div>
       <%= i.submit %>
     </div>
