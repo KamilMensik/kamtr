@@ -6,16 +6,19 @@
     				<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="..." style="height: 4rem;">
     			</div>
     			<div class="col col-md-9"><p class="card-text"><%= i.content%></p></div>
-    			<div class="col col-md-3" style="text-align: center;><h6 class="card-subtitle mb-2 text-muted"><%= "@"+User.find(i.user_id).username %></h6></div>
+    			<div class="col col-md-3" style="text-align: center;margin-top: 0.5rem;">
+	    			<h6 class="card-subtitle mb-2 text-muted">
+	    				<% @local_user = User.find(i.user_id).username %>
+	    				<%= link_to "@"+@local_user, g_user_path(:id => @local_user) %>
+	    			</h6>
+    			</div>
     			<div class="col col-md-8" style="text-align: right;"><%= i.created_at.strftime("Posted on %d.%m.%Y %H:%M") %></div>
     			<div class="col col-md-1"><%= render "g/like_button", post: i, style:"margin-right: 1rem;"%></div>
     			<%if user_signed_in? && current_user.id==i.user_id%>
 					<%= link_to "<delete>", post_path(i), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
 				<% end %>
-				<br>
   			</div>
-			
 		</div>
 	</div>
-	
+	<br>
 <% end %>
