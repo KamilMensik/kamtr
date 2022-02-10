@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+	<%unless post.liked?(current_user)%>
+		<%= button_to "#{Like.where(post_id: post.id).count}♡", like_path(post), method: "put", class:"btn",style:"margin-right: 0"%>
+	<% else %>
+		<%= button_to "#{Like.where(post_id: post.id).count}♥", unlike_path(post), method: "put", class:"btn",style:"margin-right: 0"%>
+	<%end%>
+<% else %>
+	<%= button_to "#{Like.where(post_id: post.id).count}♡", like_path(post), method: "put", class:"btn",style:"margin-right: 0", disabled: true%>
+<% end %>

@@ -7,8 +7,10 @@
     			</div>
     			<div class="col col-md-9"><p class="card-text"><%= i.content%></p></div>
     			<div class="col col-md-3" style="text-align: center;><h6 class="card-subtitle mb-2 text-muted"><%= "@"+User.find(i.user_id).username %></h6></div>
-    			<div class="col col-md-9" style="text-align: right;"><%= i.created_at.strftime("Posted on %d.%m.%Y %H:%M") %></div>
+    			<div class="col col-md-8" style="text-align: right;"><%= i.created_at.strftime("Posted on %d.%m.%Y %H:%M") %></div>
+    			<div class="col col-md-1"><%= render "g/like_button", post: i, style:"margin-right: 1rem;"%></div>
   			</div>
+			
 		</div>
 	</div>
 	<%= link_to "VISIT CLOSER", i%>

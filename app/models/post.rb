@@ -3,4 +3,9 @@ class Post < ApplicationRecord
 	validates :content, presence: true, length: {minimum: 1}
 
 	belongs_to :user
+	has_many :likes, dependent: :destroy
+
+	def liked?(user)
+		Like.where(user_id: user.id, post_id: self.id).exists?
+	end
 end

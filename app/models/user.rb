@@ -4,7 +4,8 @@ class User < ApplicationRecord
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def self.find_for_database_authentication warden_condition
     conditions = warden_condition.dup
