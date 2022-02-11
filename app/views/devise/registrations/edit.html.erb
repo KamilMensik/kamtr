@@ -7,7 +7,7 @@
   <div class="field form-floating mb-4" style="width: 100%;">
       <%= f.text_area :description, autofocus: true, class:"form-control",id:"desc-field", placeholder: "description"%>
       <label for="desc-field">description</label>
-    </div>
+  </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
