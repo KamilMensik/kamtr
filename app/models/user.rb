@@ -1,11 +1,12 @@
 class User < ApplicationRecord
-  attr_accessor :login
+  attr_accessor :login, :pfp
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  mount_uploader :pfp, PfpUploader
 
   def self.find_for_database_authentication warden_condition
     conditions = warden_condition.dup

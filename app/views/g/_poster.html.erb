@@ -1,9 +1,12 @@
 <% @posts.each do |i| %>
+	<% @local_user = User.find(i.user_id) %>
 	<div class="card" style="width: 40rem; margin-left:auto;margin-right: auto;">
 		<div class="card-body">
   			<div class="row row-cols-2">
     			<div class="col col-md-3" style="text-align: center;">
-    				<img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="..." style="height: 4rem;">
+    				<% puts @local_user.pfp%>
+    				<%= image_tag @local_user.pfp.url != nil ? @local_user.pfp_url : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",alt: "...",size:"64x64" %>
+    				
     			</div>
     			<div class="col col-md-9">
     				<p class="card-text"><%= i.content%></p>
@@ -11,8 +14,7 @@
 
     			<div class="col col-md-3" style="text-align: center;margin-top: 0.5rem;">
 	    			<h6 class="card-subtitle mb-2 text-muted">
-	    				<% @local_user = User.find(i.user_id).username %>
-	    				<%= link_to "@"+@local_user, g_user_path(:id => @local_user),class:"link-secondary text-decoration-none" %>
+	    				<%= link_to "@"+@local_user.username, g_user_path(:id => @local_user.username),class:"link-secondary text-decoration-none" %>
 	    			</h6>
     			</div>
 

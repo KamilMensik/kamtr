@@ -1,8 +1,12 @@
 <h1 style="display: flex;justify-content: center;margin-top: 8rem">Edit Account</h1>
 <div class="container" style="display: flex;justify-content: center;margin-top: 2rem;">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put , multipart: true}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.file_field :pfp%>
+  </div>
 
   <div class="field form-floating mb-4" style="width: 100%;">
       <%= f.text_area :description, autofocus: true, class:"form-control",id:"desc-field", placeholder: "description"%>
