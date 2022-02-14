@@ -1,37 +1,35 @@
 <% @posts.each do |i| %>
-	<% @local_user = User.find(i.user_id) %>
+	<% @local_user = i.user %>
 	<div class="card" style="width: 40rem; margin-left:auto;margin-right: auto;">
-		<div class="card-body">
-  			<div class="row row-cols-2">
-    			<div class="col col-md-3" style="text-align: center;">
-    				<% puts @local_user.pfp%>
-    				<%= image_tag @local_user.pfp.url != nil ? @local_user.pfp_url : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",alt: "...",size:"64x64" %>
-    				
-    			</div>
-    			<div class="col col-md-9">
-    				<p class="card-text"><%= i.content%></p>
-    			</div>
+  		<div class="card-body row row-cols-2">
+    		<div class="col col-md-3" style="text-align: center;">
+    			<% puts @local_user.pfp%>
+    			<%= image_tag @local_user.pfp.url != nil ? @local_user.pfp_url : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",alt: "...",size:"64x64" %>
+    		</div>
 
-    			<div class="col col-md-3" style="text-align: center;margin-top: 0.5rem;">
-	    			<h6 class="card-subtitle mb-2 text-muted">
-	    				<%= link_to "@"+@local_user.username, g_user_path(:id => @local_user.username),class:"link-secondary text-decoration-none" %>
-	    			</h6>
-    			</div>
+    		<div class="col col-md-9">
+    			<p class="card-text"><%= i.content%></p>
+    		</div>
 
-    			<div class="col col-md-8" style="text-align: right;">
-    				<%= i.created_at.strftime("Posted on %d.%m.%Y %H:%M") %>			
-    			</div>
+    		<div class="col col-md-3" style="text-align: center;margin-top: 0.5rem;">
+	    		<h6 class="card-subtitle mb-2 text-muted">
+	    			<%= link_to "@"+@local_user.username, g_user_path(:id => @local_user.username),class:"link-secondary text-decoration-none" %>
+	    		</h6>
+    		</div>
 
-    			<div class="col col-md-1">
-    				<%= render "g/like_button", post: i, style:"margin-right: 5%;"%>
-    			</div>
+    		<div class="col col-md-8" style="text-align: right;">
+    			<%= i.created_at.strftime("Posted on %d.%m.%Y %H:%M") %>			
+    		</div>
 
-    			<%if user_signed_in? && (current_user.id==i.user_id || current_user.username=="kamtr_official")%>
-					<%= link_to "<delete>", post_path(i), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"%>
-				<% end %>
+    		<div class="col col-md-1">
+    			<%= render "g/like_button", post: i, style:"margin-right: 5%;"%>
+    		</div>
 
-  			</div>
-		</div>
+    		<%if user_signed_in? && (current_user.id==i.user_id || current_user.username=="kamtr_official")%>
+				<%= link_to "<delete>", post_path(i), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"text-decoration-none"%>
+			<% end %>
+
+  		</div>
 	</div>
 	<br>
 <% end %>

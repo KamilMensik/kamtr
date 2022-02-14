@@ -1,8 +1,8 @@
 <% @users.each do |i| %>
-  <%= i.username %><br/>
-  <%= i.email %><br/>
-  <%= link_to "Delete this account!",user_path(i), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %><br/>
+  <div class=" card card-body">
+    <%= i.username %><br/>
+    <%= i.email %><br/>
+    <%= link_to "Delete this account!",user_path(i), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </div>
+  <br/>
 <% end %>

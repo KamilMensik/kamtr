@@ -56,6 +56,9 @@ group :development, :test do
 end
 
 gem 'carrierwave', '~> 2.0'
+gem 'carrierwave-aws'
+gem 'aws-sdk-rails'
+gem "figaro"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
