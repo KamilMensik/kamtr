@@ -4,12 +4,6 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= form_with url: g_user_url, method: :get do |form| %>
-    <div class= "input-group" style="position: relative;">
-      <span class="input-group-text" id="basic-addon1" style="background-color: #afdbfa">@</span>
-      <%= form.text_field :id, class: "form-control" %>
-    </div>
-    <% end %>
       <div class="navbar-nav">
         <% unless user_signed_in?%>
                <%= link_to "Sign In", new_user_session_path, class:"nav-link" %>

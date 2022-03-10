@@ -18,6 +18,6 @@ class GController < ApplicationController
 	private
 
 	def user_posts!
-		Post.where(user_id: @user.id).order("created_at DESC")
+		Post.where(user_id: @user.id).order("created_at DESC") unless @user == nil
 	end
 end
